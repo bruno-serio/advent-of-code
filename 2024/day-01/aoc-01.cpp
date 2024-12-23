@@ -28,25 +28,6 @@ void add_id_ordered(IDList& l, int id) {
 	}
 }
 
-void print_list(const IDList& l) {
-	for (IDList _r = l; _r != nullptr; _r=_r->next) 
-		std::cout << _r->x << '\n';
-	std::cout << std::endl;
-}
-
-void write_to_file(const IDList& l, std::fstream f) {
-	for (IDList _r = l; _r != nullptr; _r=_r->next) 
-		f << _r->x << '\n';
-}
-
-void delete_and_fw(IDList& l) {
-	if (l != nullptr) {
-		IDList _r = l->next;
-		delete l;
-		l = _r;
-	}
-}
-
 void clear_id_list(IDList& l) {
 	while (l != nullptr) {
 		IDList _r = l->next;
@@ -88,7 +69,6 @@ int main() {
 			add_id_ordered(listB, B);
 	}
 	
-
 	// part 1
 	int sum = 0;
 	IDList recA = listA;
@@ -104,6 +84,7 @@ int main() {
 
 	std::cout << "Part one: " << sum << std::endl;
 
+	// part 2
 	sum = 0;
 	recA = listA;
 	recB = listB;
